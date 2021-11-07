@@ -7,8 +7,6 @@ public class Service {
     private String name;
     private int price;
     private int doTime;
-    private List<Material> materials;
-
 
     public Service(String name, int price, int doTime) {
         this.name = name;
@@ -38,14 +36,6 @@ public class Service {
 
     public void setDoTime(int doTime) {
         this.doTime = doTime;
-    }
-
-    public List<Material> getMaterials() {
-        return materials;
-    }
-
-    public void setMaterials(List<Material> materials) {
-        this.materials = materials;
     }
 
 }

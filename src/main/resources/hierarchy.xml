@@ -1,0 +1,47 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="hierarchyschema.xsd">
+    <name>utility-service</name>
+    <address city="Minsk">Vaneeva, 32</address>
+    <director>
+        <firstName>Mr</firstName>
+        <lastName>Director</lastName>
+    </director>
+    <employees>
+        <employee>
+            <firstName>Alex</firstName>
+            <lastName>Frost</lastName>
+            <dob>2001-11-03T00:00:00</dob>
+            <position>accountant</position>
+            <salary currency="rub">1700</salary>
+        </employee>
+        <employee>
+            <firstName>John</firstName>
+            <lastName>Snow</lastName>
+            <dob>1994-10-02T00:00:00</dob>
+            <position>plumber</position>
+            <salary currency="rub">1300</salary>
+        </employee>
+    </employees>
+    <services>
+        <service type="plumbing">
+            <name>installation of meters</name>
+            <price currency="rub">22</price>
+            <doTime unit="hours">2</doTime>
+        </service>
+        <service type="repairing">
+            <name>fixing inside walls</name>
+            <price currency="rub">22</price>
+            <doTime unit="hours">8</doTime>
+        </service>
+    </services>
+    <materials>
+        <material type="repairing">
+            <name>paint</name>
+            <price currency="rub">7</price>
+        </material>
+        <material type="plumbing">
+            <name>water tap</name>
+            <price currency="rub">32</price>
+        </material>
+    </materials>
+</organization>
