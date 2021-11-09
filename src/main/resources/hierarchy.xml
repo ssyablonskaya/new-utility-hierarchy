@@ -1,10 +1,8 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
-<organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="hierarchyschema.xsd">
-    <name>utility-service</name>
-    <address city="Minsk">Vaneeva, 32</address>
+<organization name="utility-service" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="hierarchyschema.xsd">
+    <address>Vaneeva, 32</address>
     <director>
-        <firstName>Mr</firstName>
-        <lastName>Director</lastName>
+        <headName>Mr Director</headName>
     </director>
     <employees>
         <employee>
@@ -24,12 +22,12 @@
     </employees>
     <services>
         <service type="plumbing">
-            <name>installation of meters</name>
+            <serviceName>installation of meters</serviceName>
             <price currency="rub">22</price>
             <doTime unit="hours">2</doTime>
         </service>
         <service type="repairing">
-            <name>fixing inside walls</name>
+            <serviceName>fixing inside walls</serviceName>
             <price currency="rub">22</price>
             <doTime unit="hours">8</doTime>
         </service>
