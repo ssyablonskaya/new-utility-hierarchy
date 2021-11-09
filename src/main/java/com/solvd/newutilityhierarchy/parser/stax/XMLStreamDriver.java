@@ -14,15 +14,11 @@ public class XMLStreamDriver {
     public static final Logger LOGGER = LogManager.getLogger(XMLStreamDriver.class);
 
     public static void main(String[] args) throws XMLStreamException, FileNotFoundException {
-        displayOrganization((new XMLStreamHandler())
-                .processXMLFile(new File("src/main/resources/hierarchy.xml")));
-
-        System.out.println();
-
+        displayOrganization((new XMLStreamParser())
+                .parseXMLFile(new File("src/main/resources/hierarchy.xml")));
     }
 
-    private static void displayOrganization(Organization organization) { //МБ это тут нужен метод парс
-        //String address = null;
+    private static void displayOrganization(Organization organization) {
         Employee employee = null;
         Service service = null;
         Material material = null;
@@ -35,21 +31,20 @@ public class XMLStreamDriver {
             LOGGER.debug("employee firstName: " + employee.getFirstName() + " | lastName: "
                     + employee.getLastName() + " | dob: " + employee.getDob() + " | position: "
                     + employee.getPosition() + " | salary: " + employee.getSalary() + ";");
-
         }
+
         Iterator<Service> serviceIterator = organization.getServices().iterator();
         while (serviceIterator.hasNext()) {
             service = serviceIterator.next();
-            LOGGER.debug("service name: " + service.getServiceName() + " | price: "
+            LOGGER.debug("service name: " + service.getServiceName() + " {type: " + service.getType() + "} | price: "
                     + service.getPrice() + " | time to do job: " + service.getDoTime() + " hours;");
-
         }
+
         Iterator<Material> materialIterator = organization.getMaterials().iterator();
         while (materialIterator.hasNext()) {
             material = materialIterator.next();
-            LOGGER.debug("material name: " + material.getName() + " | price: "
-                    + material.getPrice() + " rubles;");
-
+            LOGGER.debug("material name: " + material.getMaterialName() + " | price: "
+                    + material.getMaterialPrice() + " rubles;");
         }
 
     }

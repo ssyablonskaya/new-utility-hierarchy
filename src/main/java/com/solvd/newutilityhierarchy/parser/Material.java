@@ -2,30 +2,31 @@ package com.solvd.newutilityhierarchy.parser;
 
 public class Material {
 
-    private String name = null;
-    private int price = 0;
+    private String materialName = null;
+    private int materialPrice = 0;
 
     public Material() {}
 
-    public Material(String name, int price, int amount) {
-        this.name = name;
-        this.price = price;
+
+    public Material(String materialName, int materialPrice, int amount) {
+        this.materialName = materialName;
+        this.materialPrice = materialPrice;
     }
 
-    public String getName() {
-        return name;
+    public String getMaterialName() {
+        return materialName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMaterialName(String materialName) {
+        this.materialName = materialName;
     }
 
-    public int getPrice() {
-        return price;
+    public int getMaterialPrice() {
+        return materialPrice;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setMaterialPrice(int materialPrice) {
+        this.materialPrice = materialPrice;
     }
 
 

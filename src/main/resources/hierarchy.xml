@@ -10,36 +10,36 @@
             <lastName>Frost</lastName>
             <dob>2001-11-03T00:00:00</dob>
             <position>accountant</position>
-            <salary currency="rub">1700</salary>
+            <salary>1700</salary>
         </employee>
         <employee>
             <firstName>John</firstName>
             <lastName>Snow</lastName>
             <dob>1994-10-02T00:00:00</dob>
             <position>plumber</position>
-            <salary currency="rub">1300</salary>
+            <salary>1300</salary>
         </employee>
     </employees>
     <services>
         <service type="plumbing">
             <serviceName>installation of meters</serviceName>
-            <price currency="rub">22</price>
-            <doTime unit="hours">2</doTime>
+            <price>22</price>
+            <doTime>2</doTime>
         </service>
         <service type="repairing">
             <serviceName>fixing inside walls</serviceName>
-            <price currency="rub">22</price>
-            <doTime unit="hours">8</doTime>
+            <price>44</price>
+            <doTime>8</doTime>
         </service>
     </services>
     <materials>
         <material type="repairing">
-            <name>paint</name>
-            <price currency="rub">7</price>
+            <materialName>paint</materialName>
+            <materialPrice>7</materialPrice>
         </material>
         <material type="plumbing">
-            <name>water tap</name>
-            <price currency="rub">32</price>
+            <materialName>water tap</materialName>
+            <materialPrice>32</materialPrice>
         </material>
     </materials>
 </organization>

@@ -20,6 +20,6 @@ public class Director {
 
     @Override
     public String toString() {
-        return "Director name: " + headName + "; ";
+        return headName + "; ";
     }
 }

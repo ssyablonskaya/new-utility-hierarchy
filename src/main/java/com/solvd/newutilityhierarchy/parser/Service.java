@@ -5,6 +5,7 @@ public class Service {
     private String serviceName = null;
     private int price = 0;
     private int doTime = 0;
+    private String type;
 
     public Service() {}
 
@@ -38,4 +39,11 @@ public class Service {
         this.doTime = doTime;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }
