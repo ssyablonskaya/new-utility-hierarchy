@@ -10,16 +10,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class XMLStreamParser {
 
     public Organization parseXMLFile(File xmlFile) throws FileNotFoundException, XMLStreamException {
-        Organization organization = null;
-        String tagContent = null;
-        Director director = null;
-        Employee employee = null;
-        Service service = null;
-        Material material = null;
+        Organization organization = new Organization();
+        String tagContent = "";
+        Director director = new Director();
+        Employee employee = new Employee();
+        Service service = new Service();
+        Material material = new Material();
+        ArrayList<Employee> employees = new ArrayList<>();
+        ArrayList<Service> services = new ArrayList<>();
+        ArrayList<Material> materials = new ArrayList<>();
 
         XMLStreamReader xmlStreamReader = (XMLInputFactory.newInstance()).createXMLStreamReader(new FileInputStream(xmlFile));
         while (xmlStreamReader.hasNext()) {
@@ -39,16 +43,19 @@ public class XMLStreamParser {
                             break;
                         case "employee":
                             employee = new Employee();
-                            organization.addEmployee(employee);
+                            employees.add(employee);
+                            organization.setEmployees(employees);
                             break;
                         case "service":
                             service = new Service();
-                            organization.addService(service);
+                            services.add(service);
+                            organization.setServices(services);
                             service.setType(xmlStreamReader.getAttributeValue(0));
                             break;
                         case "material":
                             material = new Material();
-                            organization.addMaterial(material);
+                            materials.add(material);
+                            organization.setMaterials(materials);
                             break;
                         default:
                             break;

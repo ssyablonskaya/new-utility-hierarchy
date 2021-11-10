@@ -19,9 +19,9 @@ public class XMLStreamDriver {
     }
 
     private static void displayOrganization(Organization organization) {
-        Employee employee = null;
-        Service service = null;
-        Material material = null;
+        Employee employee = new Employee();
+        Service service = new Service();
+        Material material = new Material();
         LOGGER.debug("Organization name: " + organization.getName() + ";");
         LOGGER.debug("Address: " + organization.getAddress());
         LOGGER.debug("Director name: " + organization.getDirector());

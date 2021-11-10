@@ -2,9 +2,10 @@ package com.solvd.newutilityhierarchy.parser;
 
 public class Director {
 
-    private String headName = null;
+    private String headName;
 
-    public Director() {}
+    public Director() {
+    }
 
     public Director(String headName) {
         this.headName = headName;

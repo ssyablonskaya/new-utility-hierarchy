@@ -4,13 +4,14 @@ import java.time.LocalDateTime;
 
 public class Employee {
 
-    private String firstName = null;
-    private String lastName = null;
-    private LocalDateTime dob = null;
-    private String position = null;
-    private int salary = 0;
+    private String firstName;
+    private String lastName;
+    private LocalDateTime dob;
+    private String position;
+    private int salary;
 
-    public Employee() {}
+    public Employee() {
+    }
 
     public Employee(String firstName, String lastName, LocalDateTime dob, String position, int salary) {
         this.firstName = firstName;

@@ -2,12 +2,13 @@ package com.solvd.newutilityhierarchy.parser;
 
 public class Service {
 
-    private String serviceName = null;
-    private int price = 0;
-    private int doTime = 0;
+    private String serviceName;
+    private int price;
+    private int doTime;
     private String type;
 
-    public Service() {}
+    public Service() {
+    }
 
     public Service(String serviceName, int price, int doTime) {
         this.serviceName = serviceName;
