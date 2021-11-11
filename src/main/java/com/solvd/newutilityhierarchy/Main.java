@@ -1,10 +1,12 @@
 package com.solvd.newutilityhierarchy;
 
 import com.solvd.newutilityhierarchy.parser.*;
+import com.solvd.newutilityhierarchy.parser.stax.XMLStreamParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -13,7 +15,53 @@ public class Main {
     public static final Logger LOGGER = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
-        Parser parser = new Jaxb();
+
+        LOGGER.info("StAX parser:");
+        System.out.println();
+
+        Parser parser = new XMLStreamParser();
+        Organization organization = new Organization();
+        Employee employee = new Employee();
+        Service service = new Service();
+        Material material = new Material();
+
+        try {
+            organization = parser.parse("src/main/resources/hierarchy.xml");
+
+            LOGGER.debug("Organization name: " + organization.getName() + ";");
+            LOGGER.debug("Address: " + organization.getAddress());
+            LOGGER.debug("Director name: " + organization.getDirector());
+            Iterator<Employee> employeeIterator = organization.getEmployees().iterator();
+            while (employeeIterator.hasNext()) {
+                employee = employeeIterator.next();
+                LOGGER.debug("employee firstName: " + employee.getFirstName() + " | lastName: "
+                        + employee.getLastName() + " | dob: " + employee.getDob() + " | position: "
+                        + employee.getPosition() + " | salary: " + employee.getSalary() + ";");
+            }
+
+            Iterator<Service> serviceIterator = organization.getServices().iterator();
+            while (serviceIterator.hasNext()) {
+                service = serviceIterator.next();
+                LOGGER.debug("service name: " + service.getServiceName() + " {type: " + service.getType() + "} | price: "
+                        + service.getPrice() + " | time to do job: " + service.getDoTime() + " hours;");
+            }
+
+            Iterator<Material> materialIterator = organization.getMaterials().iterator();
+            while (materialIterator.hasNext()) {
+                material = materialIterator.next();
+                LOGGER.debug("material name: " + material.getMaterialName() + " | price: "
+                        + material.getMaterialPrice() + " rubles;");
+            }
+        } catch (ParserConfigurationException | IOException | XMLStreamException ex) {
+            ex.printStackTrace();
+        }
+
+        System.out.println();
+        System.out.println();
+        LOGGER.info("Jaxb parser:");
+        System.out.println();
+
+        parser = new Jaxb();
         Organization organizationJ = new Organization();
         Employee employeeJ = new Employee();
         Service serviceJ = new Service();
@@ -22,36 +70,35 @@ public class Main {
         try {
             organizationJ = parser.parse("src/main/resources/hierarchy.xml");
 
-                LOGGER.debug("Organization's name: " + organizationJ.getName() + ";");
-                LOGGER.debug("Address: " + organizationJ.getAddress() + ";");
-                LOGGER.debug("Director's name: " + organizationJ.getDirector() + ";");
+            LOGGER.debug("Organization's name: " + organizationJ.getName() + ";");
+            LOGGER.debug("Address: " + organizationJ.getAddress() + ";");
+            LOGGER.debug("Director's name: " + organizationJ.getDirector() + ";");
 
-                Iterator<Employee> employeeJIterator = organizationJ.getEmployees().iterator();
-                while (employeeJIterator.hasNext()) {
-                    employeeJ = employeeJIterator.next();
-                    LOGGER.debug("employee firstName: " + employeeJ.getFirstName() + " | lastName: "
-                            + employeeJ.getLastName() + " | dob: " + employeeJ.getDob().getDayOfMonth() + "."
-                            + employeeJ.getDob().getMonthValue() + "." + employeeJ.getDob().getYear() + " | position: "
-                            + employeeJ.getPosition() + " | salary: " + employeeJ.getSalary() + " rubles;");
-                }
+            Iterator<Employee> employeeJIterator = organizationJ.getEmployees().iterator();
+            while (employeeJIterator.hasNext()) {
+                employeeJ = employeeJIterator.next();
+                LOGGER.debug("employee firstName: " + employeeJ.getFirstName() + " | lastName: "
+                        + employeeJ.getLastName() + " | dob: " + employeeJ.getDob().getDayOfMonth() + "."
+                        + employeeJ.getDob().getMonthValue() + "." + employeeJ.getDob().getYear() + " | position: "
+                        + employeeJ.getPosition() + " | salary: " + employeeJ.getSalary() + " rubles;");
+            }
 
-                Iterator<Service> serviceJIterator = organizationJ.getServices().iterator();
-                while (serviceJIterator.hasNext()) {
-                    serviceJ = serviceJIterator.next();
-                    LOGGER.debug("service name: " + serviceJ.getServiceName() + " {type: " + serviceJ.getType() + "} | price: "
-                            + serviceJ.getPrice() + " | time to do job: " + serviceJ.getDoTime() + " hours;");
-                }
+            Iterator<Service> serviceJIterator = organizationJ.getServices().iterator();
+            while (serviceJIterator.hasNext()) {
+                serviceJ = serviceJIterator.next();
+                LOGGER.debug("service name: " + serviceJ.getServiceName() + " {type: " + serviceJ.getType() + "} | price: "
+                        + serviceJ.getPrice() + " | time to do job: " + serviceJ.getDoTime() + " hours;");
+            }
 
-                Iterator<Material> materialIteratorJ = organizationJ.getMaterials().iterator();
-                while (materialIteratorJ.hasNext()) {
-                    materialJ = materialIteratorJ.next();
-                    LOGGER.debug("material name: " + materialJ.getMaterialName() + " | price: "
-                            + materialJ.getMaterialPrice() + " rubles;");
-                }
+            Iterator<Material> materialIteratorJ = organizationJ.getMaterials().iterator();
+            while (materialIteratorJ.hasNext()) {
+                materialJ = materialIteratorJ.next();
+                LOGGER.debug("material name: " + materialJ.getMaterialName() + " | price: "
+                        + materialJ.getMaterialPrice() + " rubles;");
+            }
 
-        } catch (ParserConfigurationException | IOException ex) {
+        } catch (ParserConfigurationException | IOException | XMLStreamException ex) {
             ex.printStackTrace();
         }
     }
-
 }

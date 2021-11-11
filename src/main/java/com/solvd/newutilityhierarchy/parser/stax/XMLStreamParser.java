@@ -11,21 +11,22 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
-public class XMLStreamParser {
+public class XMLStreamParser implements Parser{
 
-    public Organization parseXMLFile(File xmlFile) throws FileNotFoundException, XMLStreamException {
+    public Organization parse(String filePath) throws FileNotFoundException, XMLStreamException {
         Organization organization = new Organization();
         String tagContent = "";
         Director director = new Director();
         Employee employee = new Employee();
         Service service = new Service();
         Material material = new Material();
-        ArrayList<Employee> employees = new ArrayList<>();
-        ArrayList<Service> services = new ArrayList<>();
-        ArrayList<Material> materials = new ArrayList<>();
+        List<Employee> employees = new ArrayList<>();
+        List<Service> services = new ArrayList<>();
+        List<Material> materials = new ArrayList<>();
 
-        XMLStreamReader xmlStreamReader = (XMLInputFactory.newInstance()).createXMLStreamReader(new FileInputStream(xmlFile));
+        XMLStreamReader xmlStreamReader = (XMLInputFactory.newInstance()).createXMLStreamReader(new FileInputStream(filePath));
         while (xmlStreamReader.hasNext()) {
             switch (xmlStreamReader.next()) {
                 case XMLStreamConstants.START_ELEMENT:

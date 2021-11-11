@@ -12,6 +12,7 @@
 <properties>
     <log4jVersion>2.14.1</log4jVersion>
     <staxVersion>1.0-2</staxVersion>
+    <jaxbVersion>2.3.0</jaxbVersion>
 </properties>
 
 <dependencies>
@@ -24,6 +25,11 @@
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-api</artifactId>
         <version>${log4jVersion}</version>
+    </dependency>
+    <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>${jaxbVersion}</version>
     </dependency>
 </dependencies>
 

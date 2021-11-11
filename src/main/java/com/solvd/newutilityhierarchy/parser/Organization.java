@@ -1,7 +1,7 @@
 package com.solvd.newutilityhierarchy.parser;
 
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
+import java.util.List;
 
 @XmlRootElement(name = "organization")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -15,13 +15,13 @@ public class Organization {
     private Director director;
     @XmlElementWrapper(name = "employees")
     @XmlElement(name = "employee")
-    private ArrayList<Employee> employees;
+    private List<Employee> employees;
     @XmlElementWrapper(name = "services")
     @XmlElement(name = "service")
-    private ArrayList<Service> services;
+    private List<Service> services;
     @XmlElementWrapper(name = "materials")
     @XmlElement(name = "material")
-    private ArrayList<Material> materials;
+    private List<Material> materials;
 
     public String getName() {
         return name;
@@ -47,27 +47,27 @@ public class Organization {
         this.director = director;
     }
 
-    public ArrayList<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(ArrayList<Employee> employees) {
+    public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
 
-    public ArrayList<Service> getServices() {
+    public List<Service> getServices() {
         return services;
     }
 
-    public void setServices(ArrayList<Service> services) {
+    public void setServices(List<Service> services) {
         this.services = services;
     }
 
-    public ArrayList<Material> getMaterials() {
+    public List<Material> getMaterials() {
         return materials;
     }
 
-    public void setMaterials(ArrayList<Material> materials) {
+    public void setMaterials(List<Material> materials) {
         this.materials = materials;
 
     }
