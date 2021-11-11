@@ -1,13 +1,21 @@
 package com.solvd.newutilityhierarchy.parser;
 
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
 
+    @XmlElement(name = "firstName")
     private String firstName;
+    @XmlElement(name = "lastName")
     private String lastName;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private LocalDateTime dob;
+    @XmlElement(name = "position")
     private String position;
+    @XmlElement(name = "salary")
     private int salary;
 
     public Employee() {

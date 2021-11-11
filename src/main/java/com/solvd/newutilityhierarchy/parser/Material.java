@@ -1,8 +1,15 @@
 package com.solvd.newutilityhierarchy.parser;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Material {
 
+    @XmlElement(name = "materialName")
     private String materialName;
+    @XmlElement(name = "materialPrice")
     private int materialPrice;
 
     public Material() {

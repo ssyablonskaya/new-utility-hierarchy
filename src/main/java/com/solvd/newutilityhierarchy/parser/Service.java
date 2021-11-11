@@ -1,10 +1,20 @@
 package com.solvd.newutilityhierarchy.parser;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Service {
 
+    @XmlElement(name = "serviceName")
     private String serviceName;
+    @XmlElement(name = "price")
     private int price;
+    @XmlElement(name = "doTime")
     private int doTime;
+    @XmlAttribute
     private String type;
 
     public Service() {

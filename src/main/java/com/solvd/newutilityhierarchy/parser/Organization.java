@@ -1,14 +1,26 @@
 package com.solvd.newutilityhierarchy.parser;
 
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 
+@XmlRootElement(name = "organization")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Organization {
 
+    @XmlAttribute
     private String name;
+    @XmlElement(name = "address")
     private String address;
+    @XmlElement(name = "director")
     private Director director;
+    @XmlElementWrapper(name = "employees")
+    @XmlElement(name = "employee")
     private ArrayList<Employee> employees;
+    @XmlElementWrapper(name = "services")
+    @XmlElement(name = "service")
     private ArrayList<Service> services;
+    @XmlElementWrapper(name = "materials")
+    @XmlElement(name = "material")
     private ArrayList<Material> materials;
 
     public String getName() {

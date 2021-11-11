@@ -1,7 +1,12 @@
 package com.solvd.newutilityhierarchy.parser;
 
+import javax.xml.bind.annotation.*;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "director")
 public class Director {
 
+    @XmlElement(name = "headName")
     private String headName;
 
     public Director() {
@@ -21,6 +26,6 @@ public class Director {
 
     @Override
     public String toString() {
-        return headName + "; ";
+        return headName;
     }
 }
