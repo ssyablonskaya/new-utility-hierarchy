@@ -1,5 +1,9 @@
 package com.solvd.newutilityhierarchy.parser;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.solvd.newutilityhierarchy.parser.jaxb.DateAdapter;
+import com.solvd.newutilityhierarchy.parser.json.DateDeserializer;
+
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
@@ -12,6 +16,7 @@ public class Employee {
     @XmlElement(name = "lastName")
     private String lastName;
     @XmlJavaTypeAdapter(DateAdapter.class)
+    @JsonDeserialize(using = DateDeserializer.class)
     private LocalDateTime dob;
     @XmlElement(name = "position")
     private String position;

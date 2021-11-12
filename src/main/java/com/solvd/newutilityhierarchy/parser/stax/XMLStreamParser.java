@@ -6,14 +6,13 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XMLStreamParser implements Parser{
+public class XMLStreamParser implements Parser {
 
     public Organization parse(String filePath) throws FileNotFoundException, XMLStreamException {
         Organization organization = new Organization();
@@ -26,7 +25,8 @@ public class XMLStreamParser implements Parser{
         List<Service> services = new ArrayList<>();
         List<Material> materials = new ArrayList<>();
 
-        XMLStreamReader xmlStreamReader = (XMLInputFactory.newInstance()).createXMLStreamReader(new FileInputStream(filePath));
+        XMLStreamReader xmlStreamReader
+                = (XMLInputFactory.newInstance()).createXMLStreamReader(new FileInputStream(filePath));
         while (xmlStreamReader.hasNext()) {
             switch (xmlStreamReader.next()) {
                 case XMLStreamConstants.START_ELEMENT:

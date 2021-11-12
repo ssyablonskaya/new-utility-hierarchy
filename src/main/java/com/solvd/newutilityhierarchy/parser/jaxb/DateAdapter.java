@@ -1,4 +1,4 @@
-package com.solvd.newutilityhierarchy.parser;
+package com.solvd.newutilityhierarchy.parser.jaxb;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 

@@ -1,5 +1,7 @@
 package com.solvd.newutilityhierarchy.parser;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -15,6 +17,7 @@ public class Service {
     @XmlElement(name = "doTime")
     private int doTime;
     @XmlAttribute
+    @JsonIgnore
     private String type;
 
     public Service() {

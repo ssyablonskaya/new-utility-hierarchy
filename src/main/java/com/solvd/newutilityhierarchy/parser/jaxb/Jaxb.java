@@ -1,5 +1,6 @@
-package com.solvd.newutilityhierarchy.parser;
+package com.solvd.newutilityhierarchy.parser.jaxb;
 
+import com.solvd.newutilityhierarchy.parser.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,14 +18,15 @@ public class Jaxb implements Parser {
         Organization organizationJ = new Organization();
 
         try {
-            JAXBContext context = JAXBContext.newInstance(Organization.class, Director.class, Employee.class, Service.class, Material.class);
+            JAXBContext context = JAXBContext
+                    .newInstance(Organization.class, Director.class, Employee.class, Service.class, Material.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
             organizationJ = (Organization) unmarshaller.unmarshal(new File(filePath));
 
         } catch (JAXBException ex) {
             ex.printStackTrace();
         }
-    return organizationJ;
+        return organizationJ;
     }
 
 }

@@ -1,6 +1,8 @@
 package com.solvd.newutilityhierarchy;
 
 import com.solvd.newutilityhierarchy.parser.*;
+import com.solvd.newutilityhierarchy.parser.jaxb.Jaxb;
+import com.solvd.newutilityhierarchy.parser.json.JSONParser;
 import com.solvd.newutilityhierarchy.parser.stax.XMLStreamParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -61,14 +63,14 @@ public class Main {
         LOGGER.info("Jaxb parser:");
         System.out.println();
 
-        parser = new Jaxb();
+        Parser parserJ = new Jaxb();
         Organization organizationJ = new Organization();
         Employee employeeJ = new Employee();
         Service serviceJ = new Service();
         Material materialJ = new Material();
 
         try {
-            organizationJ = parser.parse("src/main/resources/hierarchy.xml");
+            organizationJ = parserJ.parse("src/main/resources/hierarchy.xml");
 
             LOGGER.debug("Organization's name: " + organizationJ.getName() + ";");
             LOGGER.debug("Address: " + organizationJ.getAddress() + ";");
@@ -100,5 +102,51 @@ public class Main {
         } catch (ParserConfigurationException | IOException | XMLStreamException ex) {
             ex.printStackTrace();
         }
+
+        System.out.println();
+        System.out.println();
+        LOGGER.info("JSON parser:");
+        System.out.println();
+
+        Parser parserJSON = new JSONParser();
+        Organization organizationJSON = new Organization();
+        Employee employeeJSON = new Employee();
+        Service serviceJSON = new Service();
+        Material materialJSON = new Material();
+
+        try {
+            organizationJSON = parserJSON.parse("src/main/resources/hierarchy.json");
+
+            LOGGER.debug("Organization's name: " + organizationJSON.getName() + ";");
+            LOGGER.debug("Address: " + organizationJSON.getAddress() + ";");
+            LOGGER.debug("Director's name: " + organizationJSON.getDirector() + ";");
+
+            Iterator<Employee> employeeJSONIterator = organizationJSON.getEmployees().iterator();
+            while (employeeJSONIterator.hasNext()) {
+                employeeJSON = employeeJSONIterator.next();
+                LOGGER.debug("employee firstName: " + employeeJSON.getFirstName() + " | lastName: "
+                        + employeeJSON.getLastName() + " | dob: " + employeeJSON.getDob().getDayOfMonth() + "."
+                        + employeeJSON.getDob().getMonthValue() + "." + employeeJSON.getDob().getYear() + " | position: "
+                        + employeeJSON.getPosition() + " | salary: " + employeeJSON.getSalary() + " rubles;");
+            }
+
+            Iterator<Service> serviceJSONIterator = organizationJSON.getServices().iterator();
+            while (serviceJSONIterator.hasNext()) {
+                serviceJSON = serviceJSONIterator.next();
+                LOGGER.debug("service name: " + serviceJSON.getServiceName() + " | price: "
+                        + serviceJSON.getPrice() + " | time to do job: " + serviceJSON.getDoTime() + " hours;");
+            }
+
+            Iterator<Material> materialJSONIterator = organizationJSON.getMaterials().iterator();
+            while (materialJSONIterator.hasNext()) {
+                materialJSON = materialJSONIterator.next();
+                LOGGER.debug("material name: " + materialJSON.getMaterialName() + " | price: "
+                        + materialJSON.getMaterialPrice() + " rubles;");
+            }
+
+        } catch (ParserConfigurationException | IOException | XMLStreamException ex) {
+            ex.printStackTrace();
+        }
+
     }
 }

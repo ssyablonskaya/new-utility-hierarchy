@@ -1,5 +1,7 @@
 package com.solvd.newutilityhierarchy.parser;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
@@ -15,12 +17,15 @@ public class Organization {
     private Director director;
     @XmlElementWrapper(name = "employees")
     @XmlElement(name = "employee")
+    @JsonProperty("employee")
     private List<Employee> employees;
     @XmlElementWrapper(name = "services")
     @XmlElement(name = "service")
+    @JsonProperty("service")
     private List<Service> services;
     @XmlElementWrapper(name = "materials")
     @XmlElement(name = "material")
+    @JsonProperty("material")
     private List<Material> materials;
 
     public String getName() {
