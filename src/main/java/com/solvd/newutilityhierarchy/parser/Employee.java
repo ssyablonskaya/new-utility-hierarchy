@@ -13,13 +13,17 @@ public class Employee {
 
     @XmlElement(name = "firstName")
     private String firstName;
+
     @XmlElement(name = "lastName")
     private String lastName;
+
     @XmlJavaTypeAdapter(DateAdapter.class)
     @JsonDeserialize(using = DateDeserializer.class)
     private LocalDateTime dob;
+
     @XmlElement(name = "position")
     private String position;
+
     @XmlElement(name = "salary")
     private int salary;
 

@@ -11,21 +11,26 @@ public class Organization {
 
     @XmlAttribute
     private String name;
+
     @XmlElement(name = "address")
     private String address;
+
     @XmlElement(name = "director")
     private Director director;
+
     @XmlElementWrapper(name = "employees")
     @XmlElement(name = "employee")
-    @JsonProperty("employee")
+    @JsonProperty("employees")
     private List<Employee> employees;
+
     @XmlElementWrapper(name = "services")
     @XmlElement(name = "service")
-    @JsonProperty("service")
+    @JsonProperty("services")
     private List<Service> services;
+
     @XmlElementWrapper(name = "materials")
     @XmlElement(name = "material")
-    @JsonProperty("material")
+    @JsonProperty("materials")
     private List<Material> materials;
 
     public String getName() {

@@ -12,10 +12,13 @@ public class Service {
 
     @XmlElement(name = "serviceName")
     private String serviceName;
+
     @XmlElement(name = "price")
     private int price;
+
     @XmlElement(name = "doTime")
     private int doTime;
+    
     @XmlAttribute
     @JsonIgnore
     private String type;

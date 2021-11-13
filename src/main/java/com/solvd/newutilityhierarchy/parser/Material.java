@@ -9,6 +9,7 @@ public class Material {
 
     @XmlElement(name = "materialName")
     private String materialName;
+
     @XmlElement(name = "materialPrice")
     private int materialPrice;
 

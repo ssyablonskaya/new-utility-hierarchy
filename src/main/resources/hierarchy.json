@@ -4,7 +4,7 @@
     "director": {
       "headName": "Mr Director"
     },
-    "employee": [
+    "employees": [
       {
         "firstName": "Alex",
         "lastName": "Frost",
@@ -20,7 +20,7 @@
         "salary": 1300
       }
     ],
-  "service": [
+  "services": [
     {
       "serviceName": "installation of meters",
       "price": 22,
@@ -32,7 +32,7 @@
       "doTime": 8
     }
   ],
-  "material": [
+  "materials": [
     {
       "materialName": "paint",
       "materialPrice": 7
