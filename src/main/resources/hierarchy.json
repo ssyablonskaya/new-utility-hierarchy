@@ -1,0 +1,45 @@
+{
+    "name": "utility-service",
+    "address": "Vaneeva, 32",
+    "director": {
+      "headName": "Mr Director"
+    },
+    "employees": [
+      {
+        "firstName": "Alex",
+        "lastName": "Frost",
+        "dob": "2001-11-03T00:00:00",
+        "position": "accountant",
+        "salary": 1700
+      },
+      {
+        "firstName": "John",
+        "lastName": "Snow",
+        "dob": "1994-10-02T00:00:00",
+        "position": "plumber",
+        "salary": 1300
+      }
+    ],
+  "services": [
+    {
+      "serviceName": "installation of meters",
+      "price": 22,
+      "doTime": 2
+    },
+    {
+      "serviceName": "fixing inside walls",
+      "price": 44,
+      "doTime": 8
+    }
+  ],
+  "materials": [
+    {
+      "materialName": "paint",
+      "materialPrice": 7
+    },
+    {
+      "materialName": "water tap",
+      "materialPrice": 32
+    }
+  ]
+}

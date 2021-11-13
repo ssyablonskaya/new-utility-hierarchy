@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="organization">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="address">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="city" type="xs:string" use="optional"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="director">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="headName" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="employees">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="employee" maxOccurs="unbounded" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="firstName" type="xs:string"/>
+                                        <xs:element name="lastName" type="xs:string"/>
+                                        <xs:element name="dob" type="xs:dateTime"/>
+                                        <xs:element name="position" type="xs:string"/>
+                                        <xs:element name="salary">
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="services">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="service" maxOccurs="unbounded" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="serviceName"/>
+                                        <xs:element name="price">
+                                        </xs:element>
+                                        <xs:element name="doTime">
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="type" type="xs:string" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="materials">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="material" maxOccurs="unbounded" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="materialName" type="xs:string"/>
+                                        <xs:element name="materialPrice">
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="type" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="name" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

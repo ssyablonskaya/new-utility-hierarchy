@@ -1,0 +1,45 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<organization name="utility-service" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="hierarchyschema.xsd">
+    <address>Vaneeva, 32</address>
+    <director>
+        <headName>Mr Director</headName>
+    </director>
+    <employees>
+        <employee>
+            <firstName>Alex</firstName>
+            <lastName>Frost</lastName>
+            <dob>2001-11-03T00:00:00</dob>
+            <position>accountant</position>
+            <salary>1700</salary>
+        </employee>
+        <employee>
+            <firstName>John</firstName>
+            <lastName>Snow</lastName>
+            <dob>1994-10-02T00:00:00</dob>
+            <position>plumber</position>
+            <salary>1300</salary>
+        </employee>
+    </employees>
+    <services>
+        <service type="plumbing">
+            <serviceName>installation of meters</serviceName>
+            <price>22</price>
+            <doTime>2</doTime>
+        </service>
+        <service type="repairing">
+            <serviceName>fixing inside walls</serviceName>
+            <price>44</price>
+            <doTime>8</doTime>
+        </service>
+    </services>
+    <materials>
+        <material type="repairing">
+            <materialName>paint</materialName>
+            <materialPrice>7</materialPrice>
+        </material>
+        <material type="plumbing">
+            <materialName>water tap</materialName>
+            <materialPrice>32</materialPrice>
+        </material>
+    </materials>
+</organization>
